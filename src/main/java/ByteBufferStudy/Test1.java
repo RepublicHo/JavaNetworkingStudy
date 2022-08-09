@@ -31,7 +31,7 @@ public class Test1 {
         // A resource is an object that must be closed after
         // the program is finished with it.
         try(FileChannel channel = new FileInputStream("src/main/resources/data.txt").getChannel()){
-            // 准备缓存区
+            // 准备缓存区 不能动态调整 超过会报错
             ByteBuffer buffer = ByteBuffer.allocate(10);
 
             while(true){
