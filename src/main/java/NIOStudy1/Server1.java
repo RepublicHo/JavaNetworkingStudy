@@ -1,9 +1,16 @@
 package NIOStudy1;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.io.IOException;
 import java.net.InetSocketAddress;
+import java.nio.ByteBuffer;
 import java.nio.channels.ServerSocketChannel;
 import java.nio.channels.SocketChannel;
+import java.util.ArrayList;
+import java.util.List;
+
+
 
 /**
  * @Author Anthony Z.
@@ -23,18 +30,39 @@ import java.nio.channels.SocketChannel;
  * NIO适用于
  * 1. Channel & Buffer
   */
-public class Concept1 {
+@Slf4j
+public class Server1 {
     public static void main(String[] args) throws IOException {
 
-        // 1, Establish a server
+        // 0.bytebuffer
+        ByteBuffer buffer = ByteBuffer.allocate(16);
+        // 1, 创建服务器
         ServerSocketChannel ssc = ServerSocketChannel.open();
 
-        // 2. Bind the port
+        // 2. 绑定端口
         ssc.bind(new InetSocketAddress(8080));
 
-        // 3. accept 能够处理多个连接
+        // 3. 能够处理多个连接
+        List<SocketChannel> channels = new ArrayList<>();
         while(true){
+            // 4. accept建立与客户端连接，SocketChannel用来
+            // 与客户端之间通信
+            log.debug("connecting......");
             SocketChannel sc = ssc.accept();
+            log.debug("connected....");
+            channels.add(sc);
+            // 5. 接收客户端发送的数据
+            for(SocketChannel channel :channels){
+                log.debug("before read...");
+                channel.read(buffer);
+                buffer.flip();
+                System.out.println(buffer);
+                buffer.clear();
+                log.debug("after read...");
+            }
+
+
+
         }
         
 

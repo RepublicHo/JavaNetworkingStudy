@@ -36,3 +36,8 @@ A socket can perform seven basic operations.
 Clients do 1-4.
 Servers fo 1-7. (5-7 for waiting for 
 clients to connect to them.)
+
+
+## Reading from servers
+try **telnet time.nist.gov 13** to get the current
+time from National Institute for Standards and Technology. 

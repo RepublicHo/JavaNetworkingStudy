@@ -1,26 +1,27 @@
 package SocketClient;
 
-import javafx.scene.input.DataFormat;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.net.InetSocketAddress;
 import java.net.Socket;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.SimpleTimeZone;
+import java.net.SocketAddress;
 
 /**
  * @Author Anthony Z.
  * @Date 9/8/2022
  * @Description:
  */
-public class Basic {
+public class Read {
     public static void main(String[] args) {
         Socket socket = null;
         try{
             socket = new Socket("time.nist.gov", 13);
+            // Another way
+//            socket = new Socket();
+//            SocketAddress address = new InetSocketAddress("time.nist.gov", 13);
+//            socket.connect(address);
+
             // set timeout is optional but highly recommended.
             socket.setSoTimeout(15000); // Timeouts are measured in milliseconds.
 
