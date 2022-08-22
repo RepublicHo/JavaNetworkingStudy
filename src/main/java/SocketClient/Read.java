@@ -11,6 +11,10 @@ import java.net.SocketAddress;
  * @Author Anthony Z.
  * @Date 9/8/2022
  * @Description:
+ *
+ * 在读取网络数据流的时候，可以通过先用InputStream获取字节流、InputStreamReader将字节流转化成字符流、BufferedReader将字符流以缓存形式输出的方式来快速获取网络数据流。
+ *
+ * 获取字符流后，可直接缓存，然后从缓存区取出，这时的速度比InputStreamReader又将快上很多。
  */
 public class Read {
     public static void main(String[] args) {

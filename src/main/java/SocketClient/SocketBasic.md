@@ -2,7 +2,7 @@
 
 Data is transmitted across the Internet in packets
 of finite size called datagrams. Each datagram contains a header
-and a payload. 
+and a payload. 数据报包含一个报头header和数据本身
 
 The header contains 1. the address and port to which the
 packet is going, 2. the adddress and port from which the packet
@@ -15,7 +15,7 @@ Because datagrams have a finite length, it's often
 necessary to split the data across multiple packets and reassemble it
 at the destination. It's possible that some packets may be lost
 and need to be retransmitted, or packets arrive out
-of order and need to be reordered. 
+of order and need to be reordered.
 
 However, we don't have to do the work by ourselves. 
 Sockets allow the programmer to treat network connection

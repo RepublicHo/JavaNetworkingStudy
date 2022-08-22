@@ -12,13 +12,13 @@ import java.net.UnknownHostException;
  * @Description:
  */
 public class LowPortScanner {
-    static String host = "www.yhcqw.com";
-    private volatile static int port = 10;
+    static String host = "github.com";
+    private volatile static int port = 2000;
     private static final Object o = new Object();
 
     public static void main(String[] args) {
 
-        for(int i=0; i<8000; i++){
+        for(int i=0; i<1000; i++){
             new Thread(new Scanner()).start();
         }
 
@@ -30,7 +30,7 @@ public class LowPortScanner {
         public void run() {
 //            System.out.println("Port: " + port);
 //            synchronized (o) {
-                System.out.println("Port: " + port);
+//                System.out.println("Port: " + port);
                 try {
                     synchronized (o){
                         port++;
