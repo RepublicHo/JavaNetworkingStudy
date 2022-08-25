@@ -21,3 +21,38 @@ public methods with additional purposes. At other times, they almost
 completely replace the original interface. For example, it's relatively rare
 to use the write() method of PrintStream instead of one of its print() and println()
 methods. 
+
+## Chaining Filters together
+
+See ChainFilter.java
+
+Intermixing calls to different streams connected to the same
+resource may violate several implicit contracts of the filter streams. 
+**Most of the time, we should only use the last filter in the chain
+to do the actual reading or writing.**
+
+### Buffered Streams
+
+The BufferedOutputStream class stores written data in a buffer (a protected 
+byte array called buf) until the buffer is full or stream is flushed. 
+Then it writes the data onto the underlying output stream all at once. 
+
+
+### PrintStream
+
+The PrintStream class is the first filter output stream most programmers 
+encounter becase System.out is a PrintStream. 
+
+By default, print streams should be explicitly flushed. 
+
+### Data Streams
+
+The binary formats used are primarily intended for exchanging data between two different 
+Java programs through a network connection, a datafile, a pipe or some other 
+immediately. 
+
+
+## Readers and Writers
+
+
+
