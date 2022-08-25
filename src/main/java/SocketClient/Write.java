@@ -19,8 +19,8 @@ import java.net.Socket;
  *
  */
 public class Write {
-    public static final String SERVER = "dict.org";
-    public static final int PORT = 2628;
+    public static final String SERVER = "localhost";
+    public static final int PORT = 7000;
     public static final int TIMEOUT = 15000;
 
     private static final String CRLF = "\r\n";
